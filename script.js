@@ -14,7 +14,7 @@ function getComputerChoice() {
 // Make function that prompts the user to enter "rock", "paper", or "scissors"
 // Make function return a string based on user input
 function getHumanChoice() {
-    let humanChoice = (prompt("Rock, paper or scissors"))
+    let humanChoice = (prompt("Rock, paper or scissors").toLowerCase())
     if (humanChoice === "rock") {
         return "rock";
     } if (humanChoice === "paper") {
@@ -23,8 +23,6 @@ function getHumanChoice() {
         return "scissors";
     } 
 }
-
-
 
 
 // Make function that takes getComputerChoice and getHumanChoice as arguments, and compares them to each other to get a winner
@@ -82,19 +80,23 @@ function playGame() {
         }
     }
 
-    console.log(playRound(getComputerChoice(),getHumanChoice()));
-    console.log(playRound(getComputerChoice(),getHumanChoice()));
-    console.log(playRound(getComputerChoice(),getHumanChoice()));
-    console.log(playRound(getComputerChoice(),getHumanChoice()));
-    console.log(playRound(getComputerChoice(),getHumanChoice()));
-    
+    function scoreTally() {
+        if (humanScore > computerScore) {
+            return "**You beat the computer! Good job!**";
+        } else if (humanScore < computerScore) {
+            return "**You lost to the computer! Better luck next time!**";
+        } else {
+            return "**You tied with the computer!**";
+        }
+    }
 
-
+    console.log(playRound(getComputerChoice(),getHumanChoice()));
+    console.log(playRound(getComputerChoice(),getHumanChoice()));
+    console.log(playRound(getComputerChoice(),getHumanChoice()));
+    console.log(playRound(getComputerChoice(),getHumanChoice()));
+    console.log(playRound(getComputerChoice(),getHumanChoice()));
+    console.log(scoreTally())
 }
-
-    
-
-
 
 playGame()
 
